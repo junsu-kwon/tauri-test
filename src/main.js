@@ -16,16 +16,3 @@ window.addEventListener('DOMContentLoaded', () => {
     .querySelector('#greet-button')
     .addEventListener('click', () => greet());
 });
-
-const mainWindow = WebviewWindow.getByLabel('main');
-
-
-import { emit, listen } from '@tauri-apps/api/event'
-
-const unlisten = await listen('click', (event) => {
-  console.log(event.theMessage);
-})
-
-emit('click', {
-  theMessage: 'Tauri is awesome!',
-})
